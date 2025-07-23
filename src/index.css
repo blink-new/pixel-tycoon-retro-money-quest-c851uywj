@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Pixel Tycoon Theme Colors - All in HSL format */
+    --background: 25 43% 13%; /* #2F1B14 - Dark brown background */
+    --foreground: 51 100% 50%; /* #FFD700 - Gold text */
+    --card: 25 50% 7%; /* #1A0F0A - Darker brown for cards */
+    --card-foreground: 51 100% 50%; /* #FFD700 - Gold text on cards */
+    --popover: 25 50% 7%; /* #1A0F0A */
+    --popover-foreground: 51 100% 50%; /* #FFD700 */
+    --primary: 25 75% 31%; /* #8B4513 - Saddle brown */
+    --primary-foreground: 51 100% 50%; /* #FFD700 - Gold */
+    --secondary: 30 51% 26%; /* #654321 - Dark brown */
+    --secondary-foreground: 51 100% 50%; /* #FFD700 */
+    --muted: 30 51% 26%; /* #654321 */
+    --muted-foreground: 30 50% 53%; /* #CD853F - Peru */
+    --accent: 51 100% 50%; /* #FFD700 - Gold accent */
+    --accent-foreground: 25 43% 13%; /* #2F1B14 - Dark text on gold */
+    --destructive: 0 84% 60%; /* Red for destructive actions */
+    --destructive-foreground: 51 100% 50%; /* #FFD700 */
+    --border: 25 75% 31%; /* #8B4513 - Saddle brown borders */
+    --input: 30 51% 26%; /* #654321 - Dark brown inputs */
+    --ring: 51 100% 50%; /* #FFD700 - Gold focus rings */
+    --radius: 0rem; /* Sharp pixel art edges */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Pixel art styling */
+  .pixel-art {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Retro button styling */
+  .retro-button {
+    @apply bg-primary text-primary-foreground border-2 border-accent;
+    @apply px-4 py-2 font-bold uppercase tracking-wider;
+    @apply transition-all duration-100;
+    @apply hover:bg-accent hover:text-accent-foreground;
+    @apply active:translate-x-0.5 active:translate-y-0.5;
+
+    box-shadow: 4px 4px 0 hsl(var(--accent));
+  }
+  
+  .retro-button:hover {
+    box-shadow: 2px 2px 0 hsl(var(--accent));
+  }
+  
+  .retro-button:active {
+    box-shadow: 0 0 0 hsl(var(--accent));
+  }
+  
+  /* Pixel perfect text */
+  .pixel-text {
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-size: 8px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+  }
+  
+  .pixel-text-lg {
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+  }
+  
+  .pixel-text-xl {
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 2px;
+  }
+  
+  /* Game canvas styling */
+  .game-canvas {
+    @apply bg-gradient-to-b from-orange-300 via-yellow-200 to-yellow-100;
+
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgb(120 119 198 / 30%) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgb(255 119 48 / 30%) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgb(120 119 198 / 20%) 0%, transparent 50%);
+  }
+  
+  /* Coin animation */
+  @keyframes coin-bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
+  }
+  
+  .coin-bounce {
+    animation: coin-bounce 0.6s ease-in-out;
+  }
+  
+  /* Pixel perfect borders */
+  .pixel-border {
+    border-style: solid;
+    border-image: none;
+  }
+  
+  /* Disable text selection for game elements */
+  .no-select {
+    user-select: none;
+  }
+}
